@@ -53,7 +53,7 @@ namespace ConnectMe.UserMicroService.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<IAsyncResult> UpdateUserProfileAsyn(Int Id,Model.UserProfile userProfile)
+        public async Task<IActionResult> UpdateUserProfileAsyn(int Id,Model.UserProfile userProfile)
         {
             var result = await userProfileProvider.UpdateUserProfileAsync(Id, userProfile);
             if (result.Issuccess)
@@ -61,6 +61,7 @@ namespace ConnectMe.UserMicroService.Controllers
                 return Ok(result.userProfile);
             }
             return BadRequest(result.ErrorMessage);
+
         }
     }
 }
